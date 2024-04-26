@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package getMax;
+option go_package = "proto/getMax";
+
+message GetMaxRequest {
+    int32 num1 = 1;
+    int32 num2 = 2; 
+}
+
+message GetMaxResponse {
+    int32 maxNum = 1; 
+}
+
+message GetListMaxRequest {
+    repeated int32 nums = 1;
+}
+
+service getMax {
+    rpc fromTwo(GetMaxRequest) returns (GetMaxResponse);
+    rpc fromList(GetListMaxRequest) returns (GetMaxResponse);
+}
